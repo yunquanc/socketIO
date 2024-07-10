@@ -12,7 +12,7 @@ const io = new Server(httpServer, {
 io.of("/ws").on("connection", (socket) => {
   // ...
   console.log("------------->", socket);
-  socket.on("test", (...args) => {
+  socket.on("test", (args) => {
     // ...
     console.log("------------->", args);
     io.of("/ws").emit("test", { name: "John" });
