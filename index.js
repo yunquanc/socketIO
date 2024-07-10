@@ -11,16 +11,12 @@ const io = new Server(httpServer, {
 
 io.of("/ws").on("connection", (socket) => {
   // ...
-  console.log("------------->", socket);
+  log("------------->", socket);
   socket.on("test", (args) => {
     // ...
-    console.log("------------->", args);
+    log("------------->", args);
     io.of("/ws").emit("test", { name: "John" });
   });
 });
-
-setTimeout(() => {
-  // console.log("------------->", io);
-}, 1000);
 
 httpServer.listen(3000);
